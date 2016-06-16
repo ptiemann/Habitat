@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\iTextSharp.5.5.9\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -85,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="sitecore\shell\Applications\Dialogs\Forms\CreatePdfEditor.xml" />
     <Content Include="sitecore\shell\Applications\Dialogs\Forms\OutcomeEditor.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -102,9 +107,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionEditors\BaseActionEditor.cs" />
+    <Compile Include="ActionEditors\CreatePdfEditor.cs" />
     <Compile Include="ActionEditors\OutcomeEditor.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveActions\CreatePdf.cs" />
     <Compile Include="SaveActions\RegisterOutcome.cs" />
   </ItemGroup>
   <ItemGroup>

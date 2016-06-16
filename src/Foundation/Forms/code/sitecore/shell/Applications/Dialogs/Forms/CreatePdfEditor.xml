@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense"  xmlns:content="http://www.sitecore.net/content">
+    <CreatePdfForm.Editor>
+
+        <FormDialog ID="Dialog" Icon="Business/32x32/money2.png" >
+
+            <Stylesheet Src="FormBuilder.css" DeviceDependant="true"/>
+
+            <CodeBeside Type="Sitecore.Foundation.Forms.ActionEditors.CreatePdfEditor,Sitecore.Foundation.Forms"/>
+
+            <DataContext ID="ItemDataContext" DataViewName="Master" Database="master" ShowRoot="true" Root="{062A1E69-0BF6-4D6D-AC4F-C11D0F7DC1E1}" />
+
+            <GridPanel Columns="1" CellPadding="4" Width="100%" Height="100%" Style="table-layout:fixed">
+                <Border Width="100%" Height="40%">
+                    <Literal ID="SelectBasePDFLiteral" Text="Enter the base PDF File's name" />
+                    <!--<Scrollbox Width="100%" Height="460px" Background="white" Border="1px inset" Margin="0px 0px 10px 0px">-->
+                    <!--<DataTreeview ID="ItemLister" MultiSelect="false" DataContext="ItemDataContext" AllowDragging="false"  />-->
+                    <!--</Scrollbox>-->
+                    <Edit ID="EbFileName" GridPanel.Width="80%" Width="100%"/>
+                    <!--<Button ID="SelectDestinationButton" Click="dialog:selectdestination"/>-->
+                </Border>
+                <Border Width="100%" Height="40%">
+                    <Literal id="SelectRelativePathLiteral" Text="Enter the Relative Path of Base PDF Location"/>
+                    <Edit ID="EbRelativePath" GridPanel.Width="80%" Width="100%"/>
+                </Border>
+            </GridPanel>
+
+        </FormDialog>
+    </CreatePdfForm.Editor>
+</control>
