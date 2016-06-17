@@ -46,15 +46,18 @@
 
 
             string startFile = appRootDir + this.PdfRelativePath + this.BasePdfFile;
-            string finalFileRelativePath = this.PdfRelativePath +  this.BasePdfFile;
+            string finalFileRelativePath = this.PdfRelativePath ;
             string finalFile = appRootDir + finalFileRelativePath + Guid.NewGuid().ToString() + PdfExtension;
+            string tmp = Path.GetTempFileName();
+            tmp = Path.ChangeExtension(tmp, PdfExtension);
+            //FileInfo tmpFile = new FileInfo(tmp) {Attributes = FileAttributes.Temporary};
 
-            if (!File.Exists(finalFile))
-            {
+            //if (!File.Exists(tmp))
+            //{
                 // create the PDF again only if it doesn't exist already
                 using (FileStream existingFileStream = new FileStream(startFile, FileMode.Open))
                 {
-                    using (FileStream newFileStream = new FileStream(finalFile, FileMode.Create))
+                    using (FileStream newFileStream = new FileStream(tmp, FileMode.Create))
                     {
                         // PDF read
                         PdfReader pdfReader = new PdfReader(existingFileStream);
@@ -63,7 +66,7 @@
 
                         //Replace variables
                         var form = stamper.AcroFields;
-                        var fieldKeys = form.Fields.Keys;
+                       // var fieldKeys = form.Fields.Keys;
                         //foreach (var kvp in substitutions)
                         //{
                         //    if (fieldKeys.Contains(kvp.Key))
@@ -87,7 +90,7 @@
                         stamper.Close();
                         pdfReader.Close();
                     }
-                }
+                //}
             }
             return finalFileRelativePath;
         }
